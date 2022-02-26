@@ -399,10 +399,17 @@ def friends(request):
         data = list()
         for i in friends:
             if i.status:
-                data.append({"name": i.name, "url": i.url, "image": i.imageUrl,
-                             "description": i.description,
+                data.append({"name": i.name, "link": i.url, "avatar": i.imageUrl,
+                             "descr": i.description,
                              "time": i.time})
-        context = {"data": data, "status": True}
+        butterfly = [
+              {
+                "class_name": "友情链接",
+                "class_desc": "",
+                "link_list": data
+              }
+        ]
+        context = {"data": butterfly, "status": True}
     except Exception as e:
         context = {"msg": repr(e), "status": False}
     return render(request, 'layouts/json.html', {"data": json.dumps(context)})
