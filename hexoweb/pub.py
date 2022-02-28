@@ -404,7 +404,7 @@ def friends(request):
                              "time": i.time})
         butterfly = [
               {
-                "class_name": "友情链接",
+                "class_name": "友链",
                 "class_desc": "",
                 "link_list": data
               }
